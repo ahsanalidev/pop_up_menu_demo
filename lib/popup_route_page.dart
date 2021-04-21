@@ -1,6 +1,6 @@
+import 'package:examples/drop_down_field.dart';
+import 'package:examples/w_popup_menu.dart';
 import 'package:flutter/material.dart';
-import 'package:w_popup_menu/w_popup_menu.dart';
-
 
 class PopupRoutePage extends StatefulWidget {
   @override
@@ -8,6 +8,10 @@ class PopupRoutePage extends StatefulWidget {
 }
 
 class _PopupRoutePageState extends State<PopupRoutePage> {
+  String valueOne;
+  String valueTwo;
+  FocusNode focusNodeOne = FocusNode();
+  FocusNode focusNodeTwo = FocusNode();
   final List<String> actions = [
     '复制',
     '转发',
@@ -35,10 +39,46 @@ class _PopupRoutePageState extends State<PopupRoutePage> {
               child: Container(
                 width: 350,
                 child: WPopupMenu(
-                  onValueChanged: (int value) {
-                    Scaffold.of(context).showSnackBar(SnackBar(content: Text(actions[value]), duration: Duration(milliseconds: 500),));
-                  },
-                  actions: actions,
+                  body: Container(
+                    child: Row(
+                      children: [
+                        DropDownField(
+                          innerText: 'text',
+                          onChanged: (value) {
+                            setState(() {
+                              valueOne = value;
+                            });
+                          },
+                          focusNode: focusNodeOne,
+                          validator: (value) => true,
+                          currentValue: valueOne,
+                          options: [
+                            'testone',
+                            'testtwo',
+                            'testthree',
+                            'testfour',
+                          ],
+                        ),
+                        DropDownField(
+                          innerText: 'TestTwo',
+                          onChanged: (value) {
+                            setState(() {
+                              valueTwo = value;
+                            });
+                          },
+                          focusNode: focusNodeTwo,
+                          validator: (value) => true,
+                          currentValue: valueTwo,
+                          options: [
+                            'testone',
+                            'testtwo',
+                            'testthree',
+                            'testfour',
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
                   child: Container(
                     height: 50,
                     padding: EdgeInsets.all(10),
@@ -49,7 +89,7 @@ class _PopupRoutePageState extends State<PopupRoutePage> {
                       color: index % 2 == 0 ? Colors.orangeAccent : Colors.blue,
                     ),
                     child: Text(
-                      '我是Title $index',
+                      'Test $index',
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
