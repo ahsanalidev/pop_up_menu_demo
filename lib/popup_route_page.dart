@@ -38,46 +38,52 @@ class _PopupRoutePageState extends State<PopupRoutePage> {
                   index % 2 == 0 ? Alignment.centerLeft : Alignment.centerRight,
               child: Container(
                 width: 350,
+                height: 40,
                 child: WPopupMenu(
+                  menuHeight: 100,
+                  menuWidth: 300,
                   body: Container(
-                    child: Row(
-                      children: [
-                        DropDownField(
-                          innerText: 'text',
-                          onChanged: (value) {
-                            setState(() {
-                              valueOne = value;
-                            });
-                          },
-                          focusNode: focusNodeOne,
-                          validator: (value) => true,
-                          currentValue: valueOne,
-                          options: [
-                            'testone',
-                            'testtwo',
-                            'testthree',
-                            'testfour',
-                          ],
-                        ),
-                        DropDownField(
-                          innerText: 'TestTwo',
-                          onChanged: (value) {
-                            setState(() {
-                              valueTwo = value;
-                            });
-                          },
-                          focusNode: focusNodeTwo,
-                          validator: (value) => true,
-                          currentValue: valueTwo,
-                          options: [
-                            'testone',
-                            'testtwo',
-                            'testthree',
-                            'testfour',
-                          ],
-                        ),
-                      ],
-                    ),
+                    width: 200,
+                    height: 80,
+                    color: Colors.red,
+                    // child: Row(
+                    //   children: [
+                    //     DropDownField(
+                    //       innerText: 'text',
+                    //       onChanged: (value) {
+                    //         setState(() {
+                    //           valueOne = value;
+                    //         });
+                    //       },
+                    //       focusNode: focusNodeOne,
+                    //       validator: (value) => null,
+                    //       currentValue: valueOne,
+                    //       options: [
+                    //         'testone',
+                    //         'testtwo',
+                    //         'testthree',
+                    //         'testfour',
+                    //       ],
+                    //     ),
+                    //     DropDownField(
+                    //       innerText: 'TestTwo',
+                    //       onChanged: (value) {
+                    //         setState(() {
+                    //           valueTwo = value;
+                    //         });
+                    //       },
+                    //       focusNode: focusNodeTwo,
+                    //       validator: (value) => null,
+                    //       currentValue: valueTwo,
+                    //       options: [
+                    //         'testone',
+                    //         'testtwo',
+                    //         'testthree',
+                    //         'testfour',
+                    //       ],
+                    //     ),
+                    //   ],
+                    // ),
                   ),
                   child: Container(
                     height: 50,

@@ -147,13 +147,15 @@ class _MenuPopWidgetState extends State<_MenuPopWidget> {
         builder: (BuildContext context) {
           return CustomSingleChildLayout(
             delegate: _PopupMenuRouteLayout(
-                position,
-                widget.menuHeight + _triangleHeight,
-                Directionality.of(widget.btnContext),
-                widget._width,
-                widget.menuWidth,
-                widget._height),
+              position,
+              widget.menuHeight + _triangleHeight,
+              Directionality.of(widget.btnContext),
+              widget._width,
+              widget.menuWidth,
+              widget._height,
+            ),
             child: SizedBox(
+              width: 200,
               height: widget.menuHeight + _triangleHeight,
               child: Material(
                 color: Colors.transparent,
@@ -161,7 +163,7 @@ class _MenuPopWidgetState extends State<_MenuPopWidget> {
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     CustomPaint(
-                      size: Size(300, _triangleHeight),
+                      size: Size(40, _triangleHeight),
                       painter: TrianglePainter(
                         color: widget.backgroundColor,
                         position: position,
@@ -178,6 +180,7 @@ class _MenuPopWidgetState extends State<_MenuPopWidget> {
                             child: Container(
                               color: widget.backgroundColor,
                               height: widget.menuHeight,
+                              width: 200,
                             ),
                           ),
                           Row(
